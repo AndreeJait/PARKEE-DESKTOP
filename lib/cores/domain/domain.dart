@@ -2,6 +2,11 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 part 'domain.g.dart';
+part 'login_response.dart';
+part 'base_response.dart';
+part 'upload_response.dart';
+part 'location.dart';
+part 'vehicle_type.dart';
 
 @JsonSerializable()
 class Domain {

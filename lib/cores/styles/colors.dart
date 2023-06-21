@@ -10,4 +10,5 @@ class AppColors {
   var blueSoft = const Color(0xffb9e9fc);
   var secondarySoft = const Color(0xffeff5f5);
   var whiteColor = const Color.fromARGB(255, 255, 255, 255);
+  var redColor = const Color(0xfff44257);
 }

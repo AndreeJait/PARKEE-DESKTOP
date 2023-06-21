@@ -10,8 +10,6 @@ import 'package:parkee_app/features/order/domain/datasource/order_datasource.dar
 import '../../domain/repository/order_repository.dart';
 import '../datasource/order_datasource_impl.dart';
 
-
-
 class OrderRepositoryImpl implements OrderRepository {
   late OrderDatasource orderDatasource;
 
@@ -33,5 +31,25 @@ class OrderRepositoryImpl implements OrderRepository {
   @override
   Future<List<VehicleInfo>> getVehicle() {
     return orderDatasource.getVehicleInfo();
+  }
+
+  @override
+  Future<ResponseOrder> requestOrder(RequestOrder request) {
+    return orderDatasource.requestOrder(request);
+  }
+
+  @override
+  Future<CheckoutResponse> checkout(RequestCheckOut request) {
+    return orderDatasource.checkout(request);
+  }
+
+  @override
+  Future<List<Voucher>> getVouchers() {
+    return orderDatasource.getVouchers();
+  }
+
+  @override
+  Future<PaymentResponse> paid(RequestPayment request) {
+    return orderDatasource.paid(request);
   }
 }

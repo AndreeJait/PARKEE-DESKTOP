@@ -125,3 +125,57 @@ Map<String, dynamic> _$VehicleInfoToJson(VehicleInfo instance) =>
       'booked_count': instance.bookedCount,
       'available_capacity': instance.availableCapacity,
     };
+
+ResponseOrder _$ResponseOrderFromJson(Map<String, dynamic> json) =>
+    ResponseOrder(
+      json['link_parking_ticket'] as String,
+    );
+
+Map<String, dynamic> _$ResponseOrderToJson(ResponseOrder instance) =>
+    <String, dynamic>{
+      'link_parking_ticket': instance.linkParkingTicket,
+    };
+
+CheckoutResponse _$CheckoutResponseFromJson(Map<String, dynamic> json) =>
+    CheckoutResponse(
+      json['code_payment'] as String,
+      json['total_price'] as int,
+      json['total_dif'] as String,
+      json['entry_time'] as String,
+      json['exit_time'] as String,
+      json['vehicle_type'] as String,
+    );
+
+Map<String, dynamic> _$CheckoutResponseToJson(CheckoutResponse instance) =>
+    <String, dynamic>{
+      'code_payment': instance.codePayment,
+      'total_price': instance.totalPrice,
+      'total_dif': instance.totalDif,
+      'entry_time': instance.entryTime,
+      'exit_time': instance.exitTime,
+      'vehicle_type': instance.vehicleType,
+    };
+
+PaymentResponse _$PaymentResponseFromJson(Map<String, dynamic> json) =>
+    PaymentResponse(
+      json['struct_paid'] as String,
+    );
+
+Map<String, dynamic> _$PaymentResponseToJson(PaymentResponse instance) =>
+    <String, dynamic>{
+      'struct_paid': instance.structPaid,
+    };
+
+Voucher _$VoucherFromJson(Map<String, dynamic> json) => Voucher(
+      json['id'] as String,
+      json['value'] as int,
+      json['is_percentage'] as bool,
+      json['code_voucher'] as String,
+    );
+
+Map<String, dynamic> _$VoucherToJson(Voucher instance) => <String, dynamic>{
+      'id': instance.id,
+      'value': instance.value,
+      'is_percentage': instance.isPercentage,
+      'code_voucher': instance.codeVoucher,
+    };

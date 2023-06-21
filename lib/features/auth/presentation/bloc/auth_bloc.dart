@@ -13,6 +13,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ChangeAuthEvent event, Emitter<AuthState> emitter) async {
     try {
       var json = state.toJson();
+      json.forEach((key, value) {
+        json[key] = convertToJson(value);
+      });
       event.changed.forEach((key, value) {
         var temp = convertToJson(value);
         json[key] = temp;

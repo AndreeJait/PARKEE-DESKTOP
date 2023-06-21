@@ -3,17 +3,22 @@ import 'package:flutter/services.dart';
 import 'package:parkee_app/cores/styles/styles.dart';
 
 class InputRounded extends StatelessWidget {
+  List<TextInputFormatter> inputFormatter;
+
   InputRounded(
       {super.key,
       this.control,
       this.margin,
-        this.errorText,
+      this.inputFormatter = const [],
+      this.enabled = true,
+      this.errorText,
       this.obscureText = false,
       this.hintText = "Input here",
       this.width = double.infinity,
       this.height = 50});
 
   double width;
+  bool enabled;
   double height;
 
   EdgeInsets? margin;
@@ -45,7 +50,9 @@ class InputRounded extends StatelessWidget {
                         : _appColors.redColor)),
             child: TextField(
               obscureText: obscureText,
+              enabled: enabled,
               controller: control,
+              inputFormatters: inputFormatter,
               decoration: InputDecoration(
                 hintText: hintText,
                 border: InputBorder.none,

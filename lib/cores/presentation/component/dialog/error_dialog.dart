@@ -23,30 +23,38 @@ class ErrorDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: _screenUtil.widthDefault(context),
-      padding: EdgeInsets.symmetric(
-          horizontal: _screenUtil.widthDefault(context) * 0.1),
-      child: Wrap(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            child: Column(
-              children: [
-                Center(
-                  child: Text(
-                    title,
-                    style: GoogleFonts.nunito(
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                      color: color.blackSoft,
-                    ),
-                  ),
-                )
-              ],
+    return Center(
+      child: Container(
+        decoration: BoxDecoration(
+            color: color.whiteColor, borderRadius: BorderRadius.circular(10)),
+        constraints: const BoxConstraints(
+          maxWidth: 500,
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        child: Wrap(
+          children: [
+            Center(
+              child: Text(
+                title,
+                style: GoogleFonts.nunito(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24,
+                  color: color.redColor,
+                ),
+              ),
             ),
-          )
-        ],
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              child: Text(
+                message,
+                style: GoogleFonts.nunito(
+                  fontSize: 14,
+                  color: color.blackSoft,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

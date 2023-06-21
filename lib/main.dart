@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:window_manager/window_manager.dart';
 
 import 'cores/data/config/config.dart';
 import 'cores/presentation/bloc/bloc.dart';
@@ -16,6 +17,14 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await EasyLocalization.ensureInitialized();
+
+  await windowManager.ensureInitialized();
+
+// Use it only after calling `hiddenWindowAtLaunch`
+  windowManager.waitUntilReadyToShow().then((_) async {
+// Hide window title bar
+    await windowManager.setFullScreen(true);
+  });
 
   // Global config can access here
   var configSource = await rootBundle.loadString("config.json");
